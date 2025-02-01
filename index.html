@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .quiz-container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        .timer {
+            color: red;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-weight: bold;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            display: none;
+        }
+        .incorrect {
+            color: red;
+        }
+        .correct {
+            color: green;
+        }
+        .question-result {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1></h1>
+        <div class="timer" id="timer">Time remaining: 60 seconds</div>
+
+
+        <div class="question" id="question-1">
+            <p>1. 43-year-old woman complains of slowly increasing breathlessness. She has no smoking history. Investigations reveal she has bilateral enlarged hilar lymph nodes, elevated serum calcium, interstitial lung disease, and enlarged liver and spleen. What is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="Coccidioidomycosis"> Coccidioidomycosis</label>
+                <label><input type="radio" name="q1" value="Hyperparathyroidism"> Hyperparathyroidism</label>
+                <label><input type="radio" name="q1" value="Hypervitaminosis D"> Hypervitaminosis D</label>
+                <label><input type="radio" name="q1" value="Sarcoidosis"> Sarcoidosis</label>
+                <label><input type="radio" name="q1" value="Tuberculosis"> Tuberculosis</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-2">
+            <p>2. 32-year-old woman presented with mild fever and fatigue for the past month. She has no significant past medical history. Her temperature is 38.1 °C, blood pressure is 115/70 mm Hg, pulse is 75/min, and respirations are 18/min. Non tender, mobile, cervical and axillary lymph nodes are noted. Auscultation of the lungs reveals fine crackles bilaterally. Chest x-ray film showed hilar lymphadenopathy and diffuse interstitial infiltrates. Lymph node biopsy shows non caseating granulomas. Which of the following is the most appropriate therapy?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="ACE inhibitor"> ACE inhibitor</label>
+                <label><input type="radio" name="q2" value="Allopurinol"> Allopurinol</label>
+                <label><input type="radio" name="q2" value="Cyclosporine"> Cyclosporine</label>
+                <label><input type="radio" name="q2" value="Glucocorticoids"> Glucocorticoids</label>
+                <label><input type="radio" name="q2" value="Isoniazid"> Isoniazid</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-3">
+            <p>3. 39-year-old man presents to the ER with acute onset of shortness of breath, hemoptysis, and left-sided pleuritic chest pain. His past medical history includes medication-controlled asthma, peptic ulcer disease, and a recent onset of idiopathic nephrotic syndrome. His blood pressure is 180/100 mm Hg, pulse is 110/min, and RR is 28/min. Cardiac and lung examinations are normal. Laboratory data are remarkable for a serum lactate dehydrogenase of 300 U/L. An ECG shows sinus tachycardia, prominent S waves in lead I, inversions of the T wave, and a prominent Q wave in lead III. Which of the following is the most likely cause of the chest pain?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="Aortic dissection"> Aortic dissection</label>
+                <label><input type="radio" name="q3" value="Esophageal spasm"> Esophageal spasm</label>
+                <label><input type="radio" name="q3" value="Myocardial infarction"> Myocardial infarction</label>
+                <label><input type="radio" name="q3" value="Pneumonia"> Pneumonia</label>
+                <label><input type="radio" name="q3" value="Pulmonary embolism"> Pulmonary embolism</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-4">
+            <p>4. 65-year-old woman used to smoke 50 cigarettes a day for 40 years. She had increasing dyspnea for several years, but no cough. Chest X-ray shows increased lung size along with flattening of the diaphragms. Over the next several years she developed worsening peripheral edema. Her vital signs show T 36.7°C, Pulse 80/min, RR 15/min, and BP 120/80 mm Hg. Which of the following cardiac findings is most likely to be present?</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="Constrictive pericarditis"> Constrictive pericarditis</label>
+                <label><input type="radio" name="q4" value="Left ventricular aneurysm"> Left ventricular aneurysm</label>
+                <label><input type="radio" name="q4" value="Mitral valve stenosis"> Mitral valve stenosis</label>
+                <label><input type="radio" name="q4" value="Non-bacterial thrombotic endocarditis"> Non-bacterial thrombotic endocarditis</label>
+                <label><input type="radio" name="q4" value="Right ventricular hypertrophy"> Right ventricular hypertrophy</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-5">
+            <p>5. 38-year-old male presents with episodic wheeze and non-productive cough which occurs particularly at night. He has been employed in the plastics industry. He is worried about relation of these symptoms to his work. Which of the following confirms his worries?</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="Absent family history of asthma"> Absent family history of asthma</label>
+                <label><input type="radio" name="q5" value="Commencement of symptoms on his first day of work"> Commencement of symptoms on his first day of work</label>
+                <label><input type="radio" name="q5" value="Elevated serum IgE concentration"> Elevated serum IgE concentration</label>
+                <label><input type="radio" name="q5" value="Improved symptomatology when being on holiday"> Improved symptomatology when being on holiday</label>
+                <label><input type="radio" name="q5" value="Increased bronchial reactivity"> Increased bronchial reactivity</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-6">
+            <p>6. 55-year-old plumber presented with a dry nocturnal cough and increasing exertional breathlessness. On examination he had early finger clubbing, cyanosis and bilateral basal crackles. A chest X-ray showed bilateral lower zone shadowing. 
+Investigations revealed: 
+Pa02 (breathing air)  8.2 kPa (11.3 - 12.6) 
+FEVI/FVC ratio  85%
+Which of the following investigations is most likely to establish the diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="Echocardiography"> Echocardiography</label>
+                <label><input type="radio" name="q6" value="High resolution CT scan of chest"> High resolution CT scan of chest</label>
+                <label><input type="radio" name="q6" value="Measurement of diffusion capacity"> Measurement of diffusion capacity</label>
+                <label><input type="radio" name="q6" value="Serum angiotensin-converting enzyme level"> Serum angiotensin-converting enzyme level</label>
+                <label><input type="radio" name="q6" value="Transbronchial lung biopsy"> Transbronchial lung biopsy</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-7">
+            <p>7. 55-year-old man who has a 25 year pack history of smoking presents with productive cough with mucoid sputum of 2 years duration. On examination he has scattered rhonchi and wheezing. What is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="Bronchial Asthma"> Bronchial Asthma</label>
+                <label><input type="radio" name="q7" value="Bronchiectasis"> Bronchiectasis</label>
+                <label><input type="radio" name="q7" value="Chronic Bronchitis"> Chronic Bronchitis</label>
+                <label><input type="radio" name="q7" value="Fibrosing Alveolitis"> Fibrosing Alveolitis</label>
+                <label><input type="radio" name="q7" value="Pneumonitis"> Pneumonitis</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-8">
+            <p>8. 48-year-old woman presented with shortness of breath, cough with heavy sputum production, and low grade fever. She used to smoke 20 cigarettes per day for 30 years. Chest X ray shows hyperinflation of lungs.
+Her arterial blood gases revealed: 
+PH 7.40 (7.36 - 7.44) 
+PC02 55 mmHg (35-45) 
+P02 78 mmHg (90-110) 
+What is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q8" value="Bronchial asthma"> Bronchial asthma</label>
+                <label><input type="radio" name="q8" value="Chronic bronchitis"> Chronic bronchitis</label>
+                <label><input type="radio" name="q8" value="Chronic obstructive lung disease"> Chronic obstructive lung disease</label>
+                <label><input type="radio" name="q8" value="Paraneoplastic syndrome"> Paraneoplastic syndrome</label>
+                <label><input type="radio" name="q8" value="Pulmonary embolism"> Pulmonary embolism</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-9">
+            <p>9. You are asked to examine a patient who attends ER with shortness of breath. The chest X-ray shows right lower lobe consolidation. Which of the following features should prompt admission to hospital?</p>
+            <div class="options">
+                <label><input type="radio" name="q9" value="A Pa02 of 9.8 kPa (11-13)"> A Pa02 of 9.8 kPa (11-13)</label>
+                <label><input type="radio" name="q9" value="A respiratory rate of 32/min"> A respiratory rate of 32/min</label>
+                <label><input type="radio" name="q9" value="A Sa02 of 95%"> A Sa02 of 95%</label>
+                <label><input type="radio" name="q9" value="A White cell count of 16.8x10 9/l"> A White cell count of 16.8x10 9/l</label>
+                <label><input type="radio" name="q9" value="Audible Bronchial breathing"> Audible Bronchial breathing</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-10">
+            <p>10. An otherwise healthy 32-year-old man was involved in a high speed accident 3 days ago. He has sustained a closed fracture of his femur which has been treated surgically with an intramedullary nail, as well as fractures of his right clavicle and left radius. On examination, he is acutely short of breath and has a temperature of 37.5°C. The patient seems confused when you speak to him, and as you examine him, you note petechial hemorrhages. What do you think is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="Asthma attack"> Asthma attack</label>
+                <label><input type="radio" name="q10" value="Chest infection"> Chest infection</label>
+                <label><input type="radio" name="q10" value="Fat embolism"> Fat embolism</label>
+                <label><input type="radio" name="q10" value="Pulmonary embolism"> Pulmonary embolism</label>
+                <label><input type="radio" name="q10" value="Tension pneumothorax"> Tension pneumothorax</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-11">
+            <p>11. 65-year-old obese man presents with daytime somnolence, night time sweats, snoring, poor concentration. Which is the most appropriate investigation to determine the etiology?</p>
+            <div class="options">
+                <label><input type="radio" name="q11" value="Arterial blood gas"> Arterial blood gas</label>
+                <label><input type="radio" name="q11" value="Chest x-ray"> Chest x-ray</label>
+                <label><input type="radio" name="q11" value="Home Sleep study"> Home Sleep study</label>
+                <label><input type="radio" name="q11" value="Thyroid function test"> Thyroid function test</label>
+                <label><input type="radio" name="q11" value="Ventilation-perfusion scan"> Ventilation-perfusion scan</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-12">
+            <p>12. A patient with Rheumatoid arthritis complains of progressive breathlessness. Which of the following is the most likely cause?</p>
+            <div class="options">
+                <label><input type="radio" name="q12" value="Asthma"> Asthma</label>
+                <label><input type="radio" name="q12" value="Fibrosing Alveolitis"> Fibrosing Alveolitis</label>
+                <label><input type="radio" name="q12" value="Pulmonary Embolus"> Pulmonary Embolus</label>
+                <label><input type="radio" name="q12" value="Pulmonary Eosinophilia"> Pulmonary Eosinophilia</label>
+                <label><input type="radio" name="q12" value="Pulmonary nodules"> Pulmonary nodules</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-13">
+            <p>13. 40-year-old male, presents with a long history of productive cough and breathlessness. He had complained of halitosis and exacerbations of productive sputum, chest pain and hemoptysis. Examination revealed bilateral inspiratory crackles. Which of the following treatments is likely to decrease the frequency of his exacerbations?</p>
+            <div class="options">
+                <label><input type="radio" name="q13" value="Cyclic antibiotic therapy"> Cyclic antibiotic therapy</label>
+                <label><input type="radio" name="q13" value="Inhaled corticosteroids"> Inhaled corticosteroids</label>
+                <label><input type="radio" name="q13" value="Nebulized bronchodilators"> Nebulized bronchodilators</label>
+                <label><input type="radio" name="q13" value="Postural drainage"> Postural drainage</label>
+                <label><input type="radio" name="q13" value="Surgical resection"> Surgical resection</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-14">
+            <p>14. 60-year-old woman presents with deteriorating dyspnea and cough productive of purulent sputum. She has a two year history of recurrent chest infections and is a smoker of 5 cigarettes daily. On examination, she appeared breathless with a pulse of 100 bpm.
+                Investigations revealed: -
+                Hemoglobin 19.5 g/dL 
+                White cell count 15.7 x 109/L 
+                Platelets count 350 x109/L 
+                Pa02.  6.8 kPa (11.3-12.6) 
+                Carboxy-haemoglobin 14.5% ( 3 - 15 )
+                Red cell mass 147%  ( 75 - 125 )
+                What is the most likely exploration for these findings? </p>
+            <div class="options">    
+                <label><input type="radio" name="q14" value="Chronic obstructive airways disease"> Chronic obstructive airways disease</label>
+                <label><input type="radio" name="q14" value="Ectopic erythropoietin production"> Ectopic erythropoietin production</label>
+                <label><input type="radio" name="q14" value="Myelofibrosis"> Myelofibrosis</label>
+                <label><input type="radio" name="q14" value="Primary polycythemia"> Primary polycythemia</label>
+                <label><input type="radio" name="q14" value="Pseudo-polycythemia"> Pseudo-polycythemia</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-15">
+            <p>15. 72-year-old lifelong smoker presents with progressive dyspnea on exertion and chronic, nonproductive cough. On examination he is thin, breathing with pursed lips, respiratory rate 25/min, with mild wheezing on chest auscultation. What is the predominant mechanism of the airflow limitation in this gentleman?</p>
+            <div class="options">
+                <label><input type="radio" name="q15" value="Bronchospasm"> Bronchospasm</label>
+                <label><input type="radio" name="q15" value="Foreign body obstruction"> Foreign body obstruction</label>
+                <label><input type="radio" name="q15" value="Increased airways resistance"> Increased airways resistance</label>
+                <label><input type="radio" name="q15" value="Loss of elastic recoil"> Loss of elastic recoil</label>
+                <label><input type="radio" name="q15" value="Mucus plugging in the small airways"> Mucus plugging in the small airways</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-16">
+            <p>16. 20-year-old male student is assessed for shortness of breath that occurs whilst running. He has no other symptoms and does not smoke. Physical examination, full blood count, and chest X-ray are normal. Which of the following is most likely to be helpful in confirming the suspected diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q16" value="Arterial blood gas studies before and after exercise"> Arterial blood gas studies before and after exercise</label>
+                <label><input type="radio" name="q16" value="Determination of lung volumes and diffusing capacity"> Determination of lung volumes and diffusing capacity</label>
+                <label><input type="radio" name="q16" value="Measurement of venous blood lactate before and after exercise"> Measurement of venous blood lactate before and after exercise</label>
+                <label><input type="radio" name="q16" value="Spirometry before and after administration of bronchodilators"> Spirometry before and after administration of bronchodilators</label>
+                <label><input type="radio" name="q16" value="Spirometry before and after exercise"> Spirometry before and after exercise</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-17">
+            <p>17. 25-year-old male presents to ER with shortness of breath. One week ago, he developed influenza and became more short of breath and fatigued in the last 24 hours. His temperature is 38.5°C, his Sa02 is 90% on 2L of oxygen, blood pressure 100/60 mmHg and heart rate 120/min, The CXR shows patchy consolidation. Which antibiotic therapy should you select for this man?</p>
+            <div class="options">
+                <label><input type="radio" name="q17" value="Amoxicillin"> Amoxicillin</label>
+                <label><input type="radio" name="q17" value="Amoxicillin and Flucloxacillin"> Amoxicillin and Flucloxacillin</label>
+                <label><input type="radio" name="q17" value="Amoxicillin and Gentamicin"> Amoxicillin and Gentamicin</label>
+                <label><input type="radio" name="q17" value="Amoxicillin and Rifampicin"> Amoxicillin and Rifampicin</label>
+                <label><input type="radio" name="q17" value="Flucloxacillin"> Flucloxacillin</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-18">
+            <p>18. A solitary nodule is detected on a chest x-ray film in an otherwise healthy 55-year-old man. The patient has been smoking 10 cigarettes daily for 3 years. The nodule is located in the right middle lobe and measures approximately 3 cm. Previous chest x-ray films are not available for comparison. CT scan reveals a solitary lung nodule with an irregular contour. No other pulmonary lesions are found. Physical examination and routine laboratory tests are normal. Which of the following is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q18" value="Aspergilloma"> Aspergilloma</label>
+                <label><input type="radio" name="q18" value="Bronchogenic carcinoma"> Bronchogenic carcinoma</label>
+                <label><input type="radio" name="q18" value="Hamartoma"> Hamartoma</label>
+                <label><input type="radio" name="q18" value="Pulmonary abscess"> Pulmonary abscess</label>
+                <label><input type="radio" name="q18" value="Secondary (reactivated) tuberculosis"> Secondary (reactivated) tuberculosis</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-19">
+            <p>19. 72-year-old man suffers severe pleuritic chest pain on the seventh postoperative day after surgical pinning of an intertrochanteric hip fracture. He was not on anticoagulants at the time. He is hemodynamically stable, but is short of breath and has distended neck veins. Spiral CT scan shows the presence of a pulmonary infarct on the left side, and echocardiogram does not show signs of right ventricular strain. Which of the following is the most appropriate management at this time?</p>
+            <div class="options">
+                <label><input type="radio" name="q19" value="Anticoagulation with heparin"> Anticoagulation with heparin</label>
+                <label><input type="radio" name="q19" value="Infusion of thrombolytic agents into the left pulmonary artery"> Infusion of thrombolytic agents into the left pulmonary artery</label>
+                <label><input type="radio" name="q19" value="Insertion of vena cava filter"> Insertion of vena cava filter</label>
+                <label><input type="radio" name="q19" value="Surgical embolectomy"> Surgical embolectomy</label>
+                <label><input type="radio" name="q19" value="Systemic infusion of thrombolytic agents"> Systemic infusion of thrombolytic agents</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-20">
+            <p>20. 65-year-old man is admitted with fever and dyspnoea. A chest x-ray shows extensive shadowing in the right lower zone. Which one of the following is associated with a poor prognosis in patients with community-acquired pneumonia?</p>
+            <div class="options">
+                <label><input type="radio" name="q20" value="Diastolic blood pressure 65 mmHg"> Diastolic blood pressure 65 mmHg</label>
+                <label><input type="radio" name="q20" value="Sodium 131 mmol/l"> Sodium 131 mmol/l</label>
+                <label><input type="radio" name="q20" value="Urea 12 mmol/l"> Urea 12 mmol/l</label>
+                <label><input type="radio" name="q20" value="White blood cell 27 * 10 9/l"> White blood cell 27 * 10 9/l</label>
+                <label><input type="radio" name="q20" value="Respiratory rate 25/min"> Respiratory rate 25/min</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-21">
+            <p>21. Which one of the following is the least useful in assessing poor prognosis in community acquired pneumonia?</p>
+            <div class="options">
+                <label><input type="radio" name="q21" value="Confusion with mental test score 6/10"> Confusion with mental test score 6/10</label>
+                <label><input type="radio" name="q21" value="Urea of 11.4 mmole / l"> Urea of 11.4 mmole / l</label>
+                <label><input type="radio" name="q21" value="CRP of 112"> CRP of 112</label>
+                <label><input type="radio" name="q21" value="Respiratory rate 30"> Respiratory rate 30</label>
+                <label><input type="radio" name="q21" value="Aged 70 years"> Aged 70 years</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-22">
+            <p>22. Acute coryza is most commonly caused by which of the following?</p>
+            <div class="options">
+                <label><input type="radio" name="q22" value="Bordetella pertussis"> Bordetella pertussis</label>
+                <label><input type="radio" name="q22" value="Haemophilus influenzae"> Haemophilus influenzae</label>
+                <label><input type="radio" name="q22" value="Mycoplasma pneumoniae"> Mycoplasma pneumoniae</label>
+                <label><input type="radio" name="q22" value="Rhinovirus"> Rhinovirus</label>
+                <label><input type="radio" name="q22" value="Streptococcus pneumoniae"> Streptococcus pneumoniae</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-23">
+            <p>23. Non-invasive ventilation (NIV) is least likely to be successful in which one of the following scenarios?</p>
+            <div class="options">
+                <label><input type="radio" name="q23" value="COPD"> COPD</label>
+                <label><input type="radio" name="q23" value="Chest wall deformity"> Chest wall deformity</label>
+                <label><input type="radio" name="q23" value="Obstructive sleep apnoea"> Obstructive sleep apnoea</label>
+                <label><input type="radio" name="q23" value="Weaning from tracheal intubation"> Weaning from tracheal intubation</label>
+                <label><input type="radio" name="q23" value="Bronchiectasis"> Bronchiectasis</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-24">
+            <p>24. 26-year-old woman has been increasingly short of breath over 2 years. She attends the emergency department and is noted to be hypoxaemic with swollen ankles. 
+                Her ECG shows right bundle branch block. An echocardiogram is arranged. 
+                Pulmonary hypertension is defined as a mean pulmonary artery pressure measured at right heart catheterisation of at least which of the following?</p>
+            <div class="options">
+                <label><input type="radio" name="q24" value="15 mmHg"> 15 mmHg</label>
+                <label><input type="radio" name="q24" value="25 mmHg"> 25 mmHg</label>
+                <label><input type="radio" name="q24" value="35 mmHg"> 35 mmHg</label>
+                <label><input type="radio" name="q24" value="45 mmHg"> 45 mmHg</label>
+                <label><input type="radio" name="q24" value="55 mmHg"> 55 mmHg</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-25">
+            <p>25. 45-year-old man is noted to have bilateral hilar lymphadenopathy on chest x-ray. Which one of the following is the least likely cause?</p>
+            <div class="options">
+                <label><input type="radio" name="q25" value="Amyloidosis"> Amyloidosis</label>
+                <label><input type="radio" name="q25" value="Sarcoidosis"> Sarcoidosis</label>
+                <label><input type="radio" name="q25" value="Histoplasmosis"> Histoplasmosis</label>
+                <label><input type="radio" name="q25" value="Tuberculosis"> Tuberculosis</label>
+                <label><input type="radio" name="q25" value="Berylliosis"> Berylliosis</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-26">
+            <p>26. The following clinical manifestations are associated with sarcoidosis except ...</p>
+            <div class="options">
+                <label><input type="radio" name="q26" value="Finger clubbing"> Finger clubbing</label>
+                <label><input type="radio" name="q26" value="Lupus pernio"> Lupus pernio</label>
+                <label><input type="radio" name="q26" value="Pulmonary fibrosis"> Pulmonary fibrosis</label>
+                <label><input type="radio" name="q26" value="Erythema nodosum"> Erythema nodosum</label>
+                <label><input type="radio" name="q26" value="Bilateral facial nerve palsy"> Bilateral facial nerve palsy</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-27">
+            <p>27. 31-year-old woman is referred to the acute medical unit with a 4 day history of polyarthritis and a low-grade pyrexia. Examination reveals shin lesions which the patient states are painful. Chest x-ray shows a bulky mediastinum. What is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q27" value="Loffler's syndrome"> Loffler's syndrome</label>
+                <label><input type="radio" name="q27" value="Lofgren's syndrome"> Lofgren's syndrome</label>
+                <label><input type="radio" name="q27" value="Systemic lupus erythematous"> Systemic lupus erythematous</label>
+                <label><input type="radio" name="q27" value="Gonococcal arthritis"> Gonococcal arthritis</label>
+                <label><input type="radio" name="q27" value="Reiter's syndrome"> Reiter's syndrome</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-28">
+            <p>28. Which of the following features is associated with a good prognosis and spontaneous improvement in sarcoidosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q28" value="Insidious onset"> Insidious onset</label>
+                <label><input type="radio" name="q28" value="Splenomegaly"> Splenomegaly</label>
+                <label><input type="radio" name="q28" value="Disease in black people"> Disease in black people</label>
+                <label><input type="radio" name="q28" value="Stage III features on CXR"> Stage III features on CXR</label>
+                <label><input type="radio" name="q28" value="Erythema nodosum"> Erythema nodosum</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-29">
+            <p>29. A chest x-ray of a patient with sarcoidosis shows bilateral hilar lymphadenopathy accompanied with interstitial infiltrates. What chest x-ray stage does this correspond to?</p>
+            <div class="options">
+                <label><input type="radio" name="q29" value="Stage 0"> Stage 0</label>
+                <label><input type="radio" name="q29" value="Stage 1"> Stage 1</label>
+                <label><input type="radio" name="q29" value="Stage 2"> Stage 2</label>
+                <label><input type="radio" name="q29" value="Stage 3"> Stage 3</label>
+                <label><input type="radio" name="q29" value="Stage 4"> Stage 4</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-30">
+            <p>30. 35-year-old female with sarcoidosis is started on a course of prednisolone. Which one of the following is a suitable indication for commencing steroid therapy in such patients?</p>
+            <div class="options">
+                <label><input type="radio" name="q30" value="Bilateral hilar lymphadenopathy"> Bilateral hilar lymphadenopathy</label>
+                <label><input type="radio" name="q30" value="Arthralgia"> Arthralgia</label>
+                <label><input type="radio" name="q30" value="Hypercalcaemia"> Hypercalcaemia</label>
+                <label><input type="radio" name="q30" value="Serum ACE more than 120 u/l"> Serum ACE more than 120 u/l</label>
+                <label><input type="radio" name="q30" value="Erythema nodosum"> Erythema nodosum</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-31">
+            <p>31. 40 years old patient presents with fever, productive cough, worsening confusion. Blood tests reveal neutrophilia, lymphopenia and hyponatremia. Chest X ray shows right sided lobar consolidation. The most likely diagnosis is ...</p>
+            <div class="options">
+                <label><input type="radio" name="q31" value="Tuberculosis"> Tuberculosis</label>
+                <label><input type="radio" name="q31" value="Strept. Pneumoniae"> Strept. Pneumoniae</label>
+                <label><input type="radio" name="q31" value="Legionella pneumophila"> Legionella pneumophila</label>
+                <label><input type="radio" name="q31" value="Klebsiella pneumoniae"> Klebsiella pneumoniae</label>
+                <label><input type="radio" name="q31" value="Staph. Pneumoniae"> Staph. Pneumoniae</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-32">
+            <p>32. 70 years alcoholic man presents with sudden onset of productive purulent cough. The most likely pathogen is ...</p>
+            <div class="options">
+                <label><input type="radio" name="q32" value="Staph. Aureus"> Staph. Aureus</label>
+                <label><input type="radio" name="q32" value="Strept. Pneumoniae"> Strept. Pneumoniae</label>
+                <label><input type="radio" name="q32" value="Klebsiella pneumoniae"> Klebsiella pneumoniae</label>
+                <label><input type="radio" name="q32" value="Mycoplasma pneumoniae"> Mycoplasma pneumoniae</label>
+                <label><input type="radio" name="q32" value="Pseudomonas aeruginosa"> Pseudomonas aeruginosa</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-33">
+            <p>33. 40 years old man develops cough and fever. Chest X ray shows air fluid level in superior segment of right lower lobe. The most likely pathogen is ...</p>
+            <div class="options">
+                <label><input type="radio" name="q33" value="Streptococcus pneumoniae"> Streptococcus pneumoniae</label>
+                <label><input type="radio" name="q33" value="Legionella"> Legionella</label>
+                <label><input type="radio" name="q33" value="Staph. Aureus"> Staph. Aureus</label>
+                <label><input type="radio" name="q33" value="Anaerobes"> Anaerobes</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-34">
+            <p>34. What is the causative organism of Pneumonia with rusty sputum?</p>
+            <div class="options">
+                <label><input type="radio" name="q34" value="Mycoplasma"> Mycoplasma</label>
+                <label><input type="radio" name="q34" value="Strept pneumonia"> Strept pneumonia</label>
+                <label><input type="radio" name="q34" value="Klebsiella"> Klebsiella</label>
+                <label><input type="radio" name="q34" value="Legionella"> Legionella</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-35">
+            <p>35. Patient with methicillin sensitive staph aureus pneumonia on flucloxacillin. Best way to increase effect of drug?</p>
+            <div class="options">
+                <label><input type="radio" name="q35" value="Increase dose of drug"> Increase dose of drug</label>
+                <label><input type="radio" name="q35" value="Increase duration of drug"> Increase duration of drug</label>
+                <label><input type="radio" name="q35" value="Give drug IV"> Give drug IV</label>
+                <label><input type="radio" name="q35" value="Switch to glycopeptide"> Switch to glycopeptide</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-36">
+            <p>36. 25-year-old man who is immunosuppressed secondary to HIV infection is admitted to hospital with dyspnoea and a dry cough. His chest x-ray shows bilateral interstitial pulmonary infiltrates and he is started on co-trimoxazole empirically. The following morning he complains of a sudden worsening of his dyspnoea associated with left-sided chest pain. Which complication is most likely to have developed?</p>
+            <div class="options">
+                <label><input type="radio" name="q36" value="Empyema"> Empyema</label>
+                <label><input type="radio" name="q36" value="Pulmonary embolism"> Pulmonary embolism</label>
+                <label><input type="radio" name="q36" value="Acute respiratory distress syndrome"> Acute respiratory distress syndrome</label>
+                <label><input type="radio" name="q36" value="Pericarditis"> Pericarditis</label>
+                <label><input type="radio" name="q36" value="Pneumothorax"> Pneumothorax</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-37">
+            <p>37. Which of the following bacteria are common cause of pneumonia in hospitalised patients?</p>
+            <div class="options">
+                <label><input type="radio" name="q37" value="Chlamydia"> Chlamydia</label>
+                <label><input type="radio" name="q37" value="Haemophilus influenza"> Haemophilus influenza</label>
+                <label><input type="radio" name="q37" value="Legionella"> Legionella</label>
+                <label><input type="radio" name="q37" value="Mycoplasma pneumoniae"> Mycoplasma pneumoniae</label>
+                <label><input type="radio" name="q37" value="Staph. Aureus"> Staph. Aureus</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-38">
+            <p>38. 76 years old woman with a history of lung cancer presented to ER with weakness 2 days following chemotherapy. Labs are notable for Na 120 meq/ L. She receives 2 litres of normal saline over 2 hours. She suffers tonic clonic seizures 30 minutes later. What is the most likely aetiology of patient hyponatremia?</p>
+            <div class="options">
+                <label><input type="radio" name="q38" value="Acute kidney injury"> Acute kidney injury</label>
+                <label><input type="radio" name="q38" value="Chemotherapy"> Chemotherapy</label>
+                <label><input type="radio" name="q38" value="Hypovolemia"> Hypovolemia</label>
+                <label><input type="radio" name="q38" value="SIADH"> SIADH</label>
+                <label><input type="radio" name="q38" value="Vomiting"> Vomiting</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-39">
+            <p>39. Patient after long trip by aeroplane come with dyspnea, hemoptysis since 3 days. Best diagnostic investigation?</p>
+            <div class="options">
+                <label><input type="radio" name="q39" value="CT pulmonary angiography"> CT pulmonary angiography</label>
+                <label><input type="radio" name="q39" value="Echocardiography"> Echocardiography</label>
+                <label><input type="radio" name="q39" value="Ventilation perfusion scan"> Ventilation perfusion scan</label>
+                <label><input type="radio" name="q39" value="Arterial blood gases"> Arterial blood gases</label>
+                <label><input type="radio" name="q39" value="ECG"> ECG</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-40">
+            <p>40. Campbell sign is downward displacement of trachea during inspiration occur in ...</p>
+            <div class="options">
+                <label><input type="radio" name="q40" value="COPD"> COPD</label>
+                <label><input type="radio" name="q40" value="Aortic aneurysm"> Aortic aneurysm</label>
+                <label><input type="radio" name="q40" value="Bronchial asthma"> Bronchial asthma</label>
+                <label><input type="radio" name="q40" value="Bronchiectasis"> Bronchiectasis</label>
+                <label><input type="radio" name="q40" value="Pneumothorax"> Pneumothorax</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-41">
+            <p>41. Smoker patient with cough, sputum expectoration since 3 years , decreased air entry, normal chest X ray , no change in FEV1/FVC after bronchodilator. What is your diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q41" value="COPD"> COPD</label>
+                <label><input type="radio" name="q41" value="Chronic bronchitis"> Chronic bronchitis</label>
+                <label><input type="radio" name="q41" value="Emphysema"> Emphysema</label>
+                <label><input type="radio" name="q41" value="Pulmonary embolism"> Pulmonary embolism</label>
+                <label><input type="radio" name="q41" value="Tuberculosis"> Tuberculosis</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-42">
+            <p>42. What is the most important treatment modality to increase survival in patients with COPD?</p>
+            <div class="options">
+                <label><input type="radio" name="q42" value="Oral corticosteroids"> Oral corticosteroids</label>
+                <label><input type="radio" name="q42" value="Home oxygen"> Home oxygen</label>
+                <label><input type="radio" name="q42" value="Broad spectrum antibiotics"> Broad spectrum antibiotics</label>
+                <label><input type="radio" name="q42" value="Smoking cessation"> Smoking cessation</label>
+                <label><input type="radio" name="q42" value="Oral theophylline"> Oral theophylline</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-43">
+            <p>43. Which one of the following interventions is most likely to increase survival in patients with COPD?</p>
+            <div class="options">
+                <label><input type="radio" name="q43" value="Home nebulizers"> Home nebulizers</label>
+                <label><input type="radio" name="q43" value="Tiotropium inhalers"> Tiotropium inhalers</label>
+                <label><input type="radio" name="q43" value="Long term steroid therapy"> Long term steroid therapy</label>
+                <label><input type="radio" name="q43" value="Long term oxygen therapy"> Long term oxygen therapy</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-44">
+            <p>44. Which one of the following parameters is most useful for monitoring and staging of COPD?</p>
+            <div class="options">
+                <label><input type="radio" name="q44" value="FEV1/ FVC"> FEV1/ FVC</label>
+                <label><input type="radio" name="q44" value="FEV1 by spirometry"> FEV1 by spirometry</label>
+                <label><input type="radio" name="q44" value="Number of exacerbations per year"> Number of exacerbations per year</label>
+                <label><input type="radio" name="q44" value="Oxygen saturation"> Oxygen saturation</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-45">
+            <p>45. You are reviewing the management of a number of patients with chronic obstructive pulmonary disease (COPD). Which one of the following factors should prompt an assessment for long-term oxygen therapy?</p>
+            <div class="options">
+                <label><input type="radio" name="q45" value="FEV1 54% of predicted"> FEV1 54% of predicted</label>
+                <label><input type="radio" name="q45" value="Haemoglobin of 18.4 g/dl"> Haemoglobin of 18.4 g/dl</label>
+                <label><input type="radio" name="q45" value="Body mass index 18.8 kg / mA2"> Body mass index 18.8 kg / mA2</label>
+                <label><input type="radio" name="q45" value="Oxygen saturations of 93% on room air"> Oxygen saturations of 93% on room air</label>
+                <label><input type="radio" name="q45" value="FEV1/FVC Of 0.47"> FEV1/FVC Of 0.47</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-46">
+            <p>46. 62-year-old female is admitted with a suspected infective exacerbation of COPD. A chest x-ray shows no evidence of consolidation. What is the most likely causative organism?</p>
+            <div class="options">
+                <label><input type="radio" name="q46" value="Pseudomonas aeruginosa"> Pseudomonas aeruginosa</label>
+                <label><input type="radio" name="q46" value="Haemophilus influenzae"> Haemophilus influenzae</label>
+                <label><input type="radio" name="q46" value="Staphylococcus aureus"> Staphylococcus aureus</label>
+                <label><input type="radio" name="q46" value="Streptococcus pneumoniae"> Streptococcus pneumoniae</label>
+                <label><input type="radio" name="q46" value="Moraxella catarrhalis"> Moraxella catarrhalis</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-47">
+            <p>47. Which one of the following is least associated with the development of COPD?</p>
+            <div class="options">
+                <label><input type="radio" name="q47" value="Cadmium exposure"> Cadmium exposure</label>
+                <label><input type="radio" name="q47" value="Smoking"> Smoking</label>
+                <label><input type="radio" name="q47" value="Coal dust"> Coal dust</label>
+                <label><input type="radio" name="q47" value="Isocyanates"> Isocyanates</label>
+                <label><input type="radio" name="q47" value="Alpha-1 antitrypsin deficiency"> Alpha-1 antitrypsin deficiency</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-48">
+            <p>48. Asthma bronchodilator test positive when greater than ..</p>
+            <div class="options">
+                <label><input type="radio" name="q48" value="12%"> 12%</label>
+                <label><input type="radio" name="q48" value="15%"> 15%</label>
+                <label><input type="radio" name="q48" value="50%"> 50%</label>
+                <label><input type="radio" name="q48" value="60%"> 60%</label>
+                <label><input type="radio" name="q48" value="70%"> 70%</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-49">
+            <p>49. 27-year-old woman is reviewed in the asthma clinic. She currently uses salbutamol inhaler 100 mcg prn combined with beclometasone dipropionate inhaler 400 mcg bd. Despite this she is having frequent exacerbations of her asthma and recently required a course of prednisolone. What is the most appropriate next step in management?</p>
+            <div class="options">
+                <label><input type="radio" name="q49" value="Add a leukotriene receptor antagonist"> Add a leukotriene receptor antagonist</label>
+                <label><input type="radio" name="q49" value="Add tiotropium"> Add tiotropium</label>
+                <label><input type="radio" name="q49" value="Add salmeterol"> Add salmeterol</label>
+                <label><input type="radio" name="q49" value="Start to take the salbutamol regularly, 2 puffs qds"> Start to take the salbutamol regularly, 2 puffs qds</label>
+                <label><input type="radio" name="q49" value="Switch beclometasone to fluticasone"> Switch beclometasone to fluticasone</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-50">
+            <p>50. Each one of the following is a known cause of occupational asthma except ...</p>
+            <div class="options">
+                <label><input type="radio" name="q50" value="Isocyanates"> Isocyanates</label>
+                <label><input type="radio" name="q50" value="Cadmium"> Cadmium</label>
+                <label><input type="radio" name="q50" value="Soldering flux resin"> Soldering flux resin</label>
+                <label><input type="radio" name="q50" value="Flour"> Flour</label>
+                <label><input type="radio" name="q50" value="Platinum salts"> Platinum salts</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-51">
+            <p>51. Bilateral pleural effusion is commonly seen in all EXCEPT:</p>
+            <div class="options">
+                <label><input type="radio" name="q51" value="SLE"> SLE</label>
+                <label><input type="radio" name="q51" value="Nephrotic syndrome"> Nephrotic syndrome</label>
+                <label><input type="radio" name="q51" value="Pulmonary tuberculosis"> Pulmonary tuberculosis</label>
+                <label><input type="radio" name="q51" value="Congestive cardiac failure"> Congestive cardiac failure</label>
+                <label><input type="radio" name="q51" value="After coronary artery bypass graft"> After coronary artery bypass graft</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-52">
+            <p>52. Hemorrhagic pleural effusion may be seen in:</p>
+            <div class="options">
+                <label><input type="radio" name="q52" value="Cirrhosis of liver"> Cirrhosis of liver</label>
+                <label><input type="radio" name="q52" value="Pulmonary tuberculosis"> Pulmonary tuberculosis</label>
+                <label><input type="radio" name="q52" value="SLE"> SLE</label>
+                <label><input type="radio" name="q52" value="Myxedema"> Myxedema</label>
+                <label><input type="radio" name="q52" value="Nephrotic syndrome"> Nephrotic syndrome</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-53">
+            <p>53. Hemorrhagic pleural effusion is not characteristic of:</p>
+            <div class="options">
+                <label><input type="radio" name="q53" value="Systemic lupus erythematosus"> Systemic lupus erythematosus</label>
+                <label><input type="radio" name="q53" value="Acute pulmonary thromboembolism"> Acute pulmonary thromboembolism</label>
+                <label><input type="radio" name="q53" value="Tuberculous effusion"> Tuberculous effusion</label>
+                <label><input type="radio" name="q53" value="Acute pancreatitis"> Acute pancreatitis</label>
+                <label><input type="radio" name="q53" value="Metastatic cancer"> Metastatic cancer</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-54">
+            <p>54. 74 year-old woman with thyroid cancer is admitted due to shortness of breath. What is the best investigation to assess for possible compression of the upper airways?</p>
+            <div class="options">
+                <label><input type="radio" name="q54" value="Arterial blood gases"> Arterial blood gases</label>
+                <label><input type="radio" name="q54" value="Forced vital capacity"> Forced vital capacity</label>
+                <label><input type="radio" name="q54" value="Transfer factor"> Transfer factor</label>
+                <label><input type="radio" name="q54" value="Peak expiratory flow rate"> Peak expiratory flow rate</label>
+                <label><input type="radio" name="q54" value="Flow volume loop"> Flow volume loop</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-55">
+            <p>55. Which does not belong to the clinical manifestations of bronchial asthma:</p>
+            <div class="options">
+                <label><input type="radio" name="q55" value="Chest pain"> Chest pain</label>
+                <label><input type="radio" name="q55" value="Dyspnea"> Dyspnea</label>
+                <label><input type="radio" name="q55" value="Wheeze"> Wheeze</label>
+                <label><input type="radio" name="q55" value="Cough"> Cough</label>
+                <label><input type="radio" name="q55" value="Rhonchi"> Rhonchi</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-56">
+            <p>56. The most important mediator for allergic asthma is ..</p>
+            <div class="options">
+                <label><input type="radio" name="q56" value="Thromboxane A2"> Thromboxane A2</label>
+                <label><input type="radio" name="q56" value="Leukotrienes"> Leukotrienes</label>
+                <label><input type="radio" name="q56" value="Prostaglandins"> Prostaglandins</label>
+                <label><input type="radio" name="q56" value="Bradykinin"> Bradykin</label>
+                <label><input type="radio" name="q56" value="Neuropeptides"> Neuropeptides</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-57">
+            <p>57. 67-year-old woman has pulmonary function tests performed to evaluate symptoms of dyspnea. The most prominent finding is a reduction of the ratio of FEV1/FVC. Which of the following is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q57" value="COPD"> COPD</label>
+                <label><input type="radio" name="q57" value="ankylosing spondylitis"> ankylosing spondylitis</label>
+                <label><input type="radio" name="q57" value="pickwickian syndrome"> pickwickian syndrome</label>
+                <label><input type="radio" name="q57" value="scleroderma of the chest wall"> scleroderma of the chest wall</label>
+                <label><input type="radio" name="q57" value="lobar pneumonia"> lobar pneumonia</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-58">
+            <p>58. 57-year-old man with a 40-pack-per-year history of smoking experiences symptoms of shortness of breath on exertion. He has bilateral wheezes on expiration and increased resonance to percussion of the chest. Pulmonary function tests confirm the diagnosis of chronic obstructive lung disease (COPD). Which of the following is the best definition of this condition?</p>
+            <div class="options">
+                <label><input type="radio" name="q58" value="it is caused by bronchial asthma"> it is caused by bronchial asthma</label>
+                <label><input type="radio" name="q58" value="it is preceded by chronic bronchitis"> it is preceded by chronic bronchitis</label>
+                <label><input type="radio" name="q58" value="it is airflow limitation that is not fully reversible"> it is airflow limitation that is not fully reversible</label>
+                <label><input type="radio" name="q58" value="it is due to destruction and dilatation of lung alveoli"> it is due to destruction and dilatation of lung alveoli</label>
+                <label><input type="radio" name="q58" value="is due to small airways disease only"> is due to small airways disease only</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-59">
+            <p>59. 66-year-old man has progressive shortness of breath due to COPD. He is currently able to do his activities of daily living, but has trouble walking more than one block. His physical examination reveals hyperinflation, increased resonance to percussion, and bilateral expiratory wheezes. He is on appropriate medical therapy for his stage of COPD. Which of the following is also indicated in the management of this condition?</p>
+            <div class="options">
+                <label><input type="radio" name="q59" value="meningococcal vaccination"> meningococcal vaccination</label>
+                <label><input type="radio" name="q59" value="yearly influenza vaccination"> yearly influenza vaccination</label>
+                <label><input type="radio" name="q59" value="weight reduction if obese"> weight reduction if obese</label>
+                <label><input type="radio" name="q59" value="Haemophilus influenzae B vaccination"> Haemophilus influenzae B vaccination</label>
+                <label><input type="radio" name="q59" value="pneumococcal vaccination"> pneumococcal vaccination</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-60">
+            <p>60. 63-year-old man with a long history of cigarette smoking comes to see you for a 4-month history of progressive shortness of breath and dyspnea on exertion. The symptoms have been indolent, with no recent worsening. He denies fever, chest pain, or hemoptysis. He has a daily cough of 3 to 6 tablespoons of yellow phlegm. The patient says he has not seen a physician for over 10 years. Physical examination is notable for normal vital signs, a prolonged expiratory phase, scattered rhonchi, elevated jugular venous pulsation, and moderate pedal edema. Hematocrit is 49%. Which of the following therapies is most likely to prolong his survival?</p>
+            <div class="options">
+                <label><input type="radio" name="q60" value="Atenolol"> Atenolol</label>
+                <label><input type="radio" name="q60" value="Enalapril"> Enalapril</label>
+                <label><input type="radio" name="q60" value="Oxygen"> Oxygen</label>
+                <label><input type="radio" name="q60" value="Prednisone"> Prednisone</label>
+                <label><input type="radio" name="q60" value="Theophylline"> Theophylline</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-61">
+            <p>61. Which of the following is the major risk factor for asthma?</p>
+            <div class="options">
+                <label><input type="radio" name="q61" value="Air pollution"> Air pollution</label>
+                <label><input type="radio" name="q61" value="Atopy"> Atopy</label>
+                <label><input type="radio" name="q61" value="Diet"> Diet</label>
+                <label><input type="radio" name="q61" value="Maternal cigarette smoking"> Maternal cigarette smoking</label>
+                <label><input type="radio" name="q61" value="Upper respiratory viral infections"> Upper respiratory viral infections</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-62">
+            <p>62. 22-year-old woman with a history of intermittent wheezing in response to exercise presents to the emergency room with shortness of breath. Her attack occurred during an aerobics class. At this point she is having obvious difficulty breathing and has diffuse wheezes on pulmonary examination. O2 saturation is 95% by pulse oximetry. The most effective treatment at this point would be ..</p>
+            <div class="options">
+                <label><input type="radio" name="q62" value="intravenous aminophylline"> intravenous aminophylline</label>
+                <label><input type="radio" name="q62" value="inhaled cromolyn sodium"> inhaled cromolyn sodium</label>
+                <label><input type="radio" name="q62" value="inhaled albuterol"> inhaled albuterol</label>
+                <label><input type="radio" name="q62" value="intravenous hydrocortisone"> intravenous hydrocortisone</label>
+                <label><input type="radio" name="q62" value="inhaled beclomethasone"> inhaled beclomethasone</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-63">
+            <p>63. Patient after long trip by airplane come to ER with dyspnea, chest pain, hemoptysis and pain in right leg. HR 106, RR 28, normal cardiopulmonary examination. What is your diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q63" value="Pulmonary embolism"> Pulmonary embolism</label>
+                <label><input type="radio" name="q63" value="Muscle strain"> Muscle strain</label>
+                <label><input type="radio" name="q63" value="Pneumothorax"> Pneumothorax</label>
+                <label><input type="radio" name="q63" value="Brochiectasis"> Brochiectasis</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-64">
+            <p>64. 52-year-old man develops sudden-onset shortness of breath on postoperative day 4 after a hemicolectomy for colon cancer. His surgery went well with no operative complications. He reports no cough, sputum, or pleuritic chest pain. His blood pressure is 155/90 mm Hg, pulse 100/min, temperature 37.8°C, lungs are clear, and heart sounds normal. He has bilateral pedal edema, but no discomfort in his legs. His CXR and ECG are normal. A chest CT with contrast reveals a thrombus in his right upper lobe artery. Which of the following statements concerning the management of this condition is most likely correct?</p>
+            <div class="options">
+                <label><input type="radio" name="q64" value="continuous IV heparin or subcutaneous low-molecular-weight heparin (LMWH) therapy is indicated"> continuous IV heparin or subcutaneous low-molecular-weight heparin (LMWH) therapy is indicated</label>
+                <label><input type="radio" name="q64" value="urgent thrombolytic therapy is indicated"> urgent thrombolytic therapy is indicated</label>
+                <label><input type="radio" name="q64" value="urgent inferior vena cava (IVC) filter insertion is indicated"> urgent inferior vena cava (IVC) filter insertion is indicated</label>
+                <label><input type="radio" name="q64" value="confirmation of the diagnosis with bilateral ultrasound leg Dopplers"> confirmation of the diagnosis with bilateral ultrasound leg Dopplers</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-65">
+            <p>65. 63-year-old woman is seen in the emergency room with acute shortness of breath. There is no history of heart or lung problems in the past. She was recently diagnosed with breast cancer and is undergoing active treatment. On examination, her blood pressure is 120/80 mm Hg, pulse 100/min, and heart and lungs are normal. There are no clinical signs of deep venous thrombosis (DVT). Which of the following investigations is most likely to rule out a pulmonary embolism (PE)?</p>
+            <div class="options">
+                <label><input type="radio" name="q65" value="normal CXR"> normal CXR</label>
+                <label><input type="radio" name="q65" value="normal electrocardiogram (ECG)"> normal electrocardiogram (ECG)</label>
+                <label><input type="radio" name="q65" value="normal ventilation-perfusion lung scan"> normal ventilation-perfusion lung scan</label>
+                <label><input type="radio" name="q65" value="normal ventilation scan"> normal ventilation scan</label>
+                <label><input type="radio" name="q65" value="normal magnetic resonance image (MRI)"> normal magnetic resonance image (MRI)</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-66">
+            <p>66. 69-year-old woman has recently returned on an overnight flight from Europe. She now complains of vague chest discomfort and shortness of breath. On examination, she is comfortable, blood pressure 130/80 mm Hg, pulse 90/min, respirations 18/min, and oxygen saturation 97%. Her heart and lungs are normal on auscultation, and there is no edema or leg tenderness on palpation. A quantitative (ELISA) D-dimer assay is positive. Which of the following statements regarding the D-dimer assay is correct?</p>
+            <div class="options">
+                <label><input type="radio" name="q66" value="it is sensitive but not specific"> it is sensitive but not specific</label>
+                <label><input type="radio" name="q66" value="it is specific but not sensitive"> it is specific but not sensitive</label>
+                <label><input type="radio" name="q66" value="it is neither specific nor sensitive"> it is neither specific nor sensitive</label>
+                <label><input type="radio" name="q66" value="a negative result suggests myocardial ischemia"> a negative result suggests myocardial ischemia</label>
+                <label><input type="radio" name="q66" value="it is both sensitive and specific"> it is both sensitive and specific</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-67">
+            <p>67. Patient with hypoxemia, hypercapnia, and polycythemia is able to restore his blood gases to normal by voluntary hyperventilation. Which of the following is the most likely location for the abnormalities seen on his blood gases?</p>
+            <div class="options">
+                <label><input type="radio" name="q67" value="cerebral cortex"> cerebral cortex</label>
+                <label><input type="radio" name="q67" value="bone marrow"> bone marrow</label>
+                <label><input type="radio" name="q67" value="ventricular septum"> ventricular septum</label>
+                <label><input type="radio" name="q67" value="respiratory center"> respiratory center</label>
+                <label><input type="radio" name="q67" value="cerebellum"> cerebellum</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-68">
+            <p>68. 63-year-old woman presents with dyspnea and coughing up foul smelling purulent sputum. She has had many similar episodes in the past. There are no other constitutional symptoms and she denies excessive alcohol intake. On physical examination, she appears chronically ill with clubbing of the fingers. Heart sounds are normal, JVP is measured at 4 cm, and there are inspiratory crackles heard at the lung bases posteriorly. There is no hepatosplenomegaly or any palpable lymph nodes. CXR shows scaring in the left lower lobe, which on chest CT scan is identified as cystic changes with airway dilatation and bronchial wall thickening. Which of the following is the most appropriate initial next step in management?</p>
+            <div class="options">
+                <label><input type="radio" name="q68" value="antibiotics and postural drainage"> antibiotics and postural drainage</label>
+                <label><input type="radio" name="q68" value="steroids"> steroids</label>
+                <label><input type="radio" name="q68" value="radiotherapy"> radiotherapy</label>
+                <label><input type="radio" name="q68" value="aerosols"> aerosols</label>
+                <label><input type="radio" name="q68" value="INH"> INH</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-69">
+            <p>69. 55-year-old woman presents with coughing up blood and sputum. She gives a history of recurrent pneumonias and a chronic cough productive of foul-smelling purulent sputum. The sputum production is worse on lying down and in the morning. On physical examination, she appears chronically ill with clubbing of the fingers. Wet inspiratory crackles are heard at the lung bases posteriorly. There are nonhepatosplenomegaly or any palpable lymph nodes. CXR shows scaring in the right lower lobe, which on chest CT scan is identified as airway dilatation, bronchial wall thickening, and grape like cysts. Which of the following is a recognized precursor to this patient’s condition?</p>
+            <div class="options">
+                <label><input type="radio" name="q69" value="bronchial asthma"> bronchial asthma</label>
+                <label><input type="radio" name="q69" value="cigarette smoking"> cigarette smoking</label>
+                <label><input type="radio" name="q69" value="lung infection and impairment of drainage"> lung infection and impairment of drainage</label>
+                <label><input type="radio" name="q69" value="lung cancer"> lung cancer</label>
+                <label><input type="radio" name="q69" value="silicosis"> silicosis</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-70">
+            <p>70. Which gene is associated with bronchiectasis?</p>
+            <div class="options">
+                <label><input type="radio" name="q70" value="HLA-DR 1"> HLA-DR 1</label>
+                <label><input type="radio" name="q70" value="HLA-DR 2"> HLA-DR 2</label>
+                <label><input type="radio" name="q70" value="HLA-DR 3"> HLA-DR 3</label>
+                <label><input type="radio" name="q70" value="HLA-DR 4"> HLA-DR 4</label>
+                <label><input type="radio" name="q70" value="HLA-B 27"> HLA-B 27</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-71">
+            <p>71. 28-year-old man presents with coughing up blood and sputum. He gives a history of recurrent pneumonias and a chronic cough productive of foul-smelling purulent sputum. He has no other past medical history and is a lifetime nonsmoker. On physical examination, there are no oral lesions, heart sounds are normal, and wet inspiratory crackles are heard at the lung bases posteriorly. He also has clubbing of his fingers, but there is no hepatosplenomegaly or any palpable lymph nodes. CXR show fibrosis and pulmonary infiltrates in the right lower lung. Which of the following is the most appropriate initial diagnostic test?</p>
+            <div class="options">
+                <label><input type="radio" name="q71" value="high resolution CT chest"> high resolution CT chest</label>
+                <label><input type="radio" name="q71" value="bronchoscopy"> bronchoscopy</label>
+                <label><input type="radio" name="q71" value="bronchography"> bronchography</label>
+                <label><input type="radio" name="q71" value="open thoracotomy"> open thoracotomy</label>
+                <label><input type="radio" name="q71" value="bronchoalveolar lavage"> bronchoalveolar lavage</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-72">
+            <p>72. 23 year old woman has been diagnosed with primary pulmonary hypertension following right heart catheterisation and extensive investigation to exclude alternative causes of her presentation at a specialist unit. Which of the following therapies may be indicated in primary pulmonary hypertension?</p>
+            <div class="options">
+                <label><input type="radio" name="q72" value="Bosentan"> Bosentan</label>
+                <label><input type="radio" name="q72" value="Cyclizine"> Cyclizine</label>
+                <label><input type="radio" name="q72" value="Etanercept"> Etanercept</label>
+                <label><input type="radio" name="q72" value="Infliximab"> Infliximab</label>
+                <label><input type="radio" name="q72" value="isosorbide mononitrate"> isosorbide mononitrate</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-73">
+            <p>73. Both dyskinetic ciliary syndromes and cystic fibrosis lead to recurrent pneumonia, bronchitis, and eventually bronchiectasis. Which of the following manifestations is typical of Kartagener’s syndrome?</p>
+            <div class="options">
+                <label><input type="radio" name="q73" value="Intestinal obstruction"> Intestinal obstruction</label>
+                <label><input type="radio" name="q73" value="Dextrocardia"> Dextrocardia</label>
+                <label><input type="radio" name="q73" value="Steatorrhea"> Steatorrhea</label>
+                <label><input type="radio" name="q73" value="Interstitial pulmonary fibrosis"> Interstitial pulmonary fibrosis</label>
+                <label><input type="radio" name="q73" value="Infertility"> Infertility</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-74">
+            <p>74. 28-year-old woman is evaluated for recurrent lung and sinus infections. She recalls having at least yearly episodes of bronchitis beginning in her early teens. For the past 5 years, she states that she has been on antibiotics at least three times yearly for respiratory or sinus infections. She also reports that she has had difficulty gaining weight and has always felt short compared to her peers. On physical examination, the patient has a body mass index of 18.5 kg/m2. Her oxygen saturation is 95% on room air at rest. Nasal polyps are present. Coarse rhonchi and crackles are heard in the bilateral upper lung zones. A chest radiograph shows bilateral upper lobe bronchiectasis with areas of mucous plugging. You are concerned about the possibility of undiagnosed cystic fibrosis. Which of the following tests would provide the strongest support for the diagnosis of cystic fibrosis in this individual?</p>
+            <div class="options">
+                <label><input type="radio" name="q74" value="DNA analysis demonstrating one copy of the F508del allele"> DNA analysis demonstrating one copy of the F508del allele</label>
+                <label><input type="radio" name="q74" value="Decreased baseline nasal potential difference"> Decreased baseline nasal potential difference</label>
+                <label><input type="radio" name="q74" value="Presence of P aeruginosa on repeated sputum cultures"> Presence of P aeruginosa on repeated sputum cultures</label>
+                <label><input type="radio" name="q74" value="Sweat chloride values >40 mmol/L"> Sweat chloride values >40 mmol/L</label>
+                <label><input type="radio" name="q74" value="Sweat chloride values >60 mmol/L"> Sweat chloride values >60 mmol/L</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-75">
+            <p>75. Pulmonary arterial hypertension may be seen in each of the following conditions except ..</p>
+            <div class="options">
+                <label><input type="radio" name="q75" value="Hepatitis B"> Hepatitis B</label>
+                <label><input type="radio" name="q75" value="Eisenmenger's syndrome"> Eisenmenger's syndrome</label>
+                <label><input type="radio" name="q75" value="Sickle cell anemia"> Sickle cell anemia</label>
+                <label><input type="radio" name="q75" value="HIV"> HIV</label>
+                <label><input type="radio" name="q75" value="Sarcoidosis"> Sarcoidosis</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-76">
+            <p>76. 38-year-old woman has been complaining of a 2-year history of increasing dyspnea and fatigue. Physical examination reveals increased JVP and a reduced carotid pulse. Precordial examination reveals a left parasternal lift, loud P2, and right-sided S3 and S4. There are no audible murmurs. CXR reveals clear lung fields and an ECG shows evidence of right ventricular hypertrophy. Pulmonary function tests show a slight restrictive pattern. Primary pulmonary hypertension is diagnosed. Which of the following treatments is helpful in this condition?</p>
+            <div class="options">
+                <label><input type="radio" name="q76" value="corticosteroids"> corticosteroids</label>
+                <label><input type="radio" name="q76" value="nitrates"> nitrates</label>
+                <label><input type="radio" name="q76" value="alpha-adrenergic blockers"> alpha-adrenergic blockers</label>
+                <label><input type="radio" name="q76" value="calcium channel blockers"> calcium channel blockers</label>
+                <label><input type="radio" name="q76" value="angiotensin-converting enzyme (ACE) inhibitors"> angiotensin-converting enzyme (ACE) inhibitors</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-77">
+            <p>77. 83-year-old man with Parkinson’s disease presents with low-grade fever and cough for several weeks. Lately, he has been experiencing more rigidity and difficulty with his walking. He is on a levodopa/carbidopa combination for treatment for the past 5 years. On examination, his gait is shuffling and slow. He has a tremor in his left hand at rest, and there is cog-wheel rigidity of the forearm. There are crackles in the left lower lung field. CXR reveals a lung abscess in the left lower lobe. Which of the following is the most likely bacteriologic diagnosis for the lung abscess?</p>
+            <div class="options">
+                <label><input type="radio" name="q77" value="oropharyngeal flora"> oropharyngeal flora</label>
+                <label><input type="radio" name="q77" value="tuberculosis"> tuberculosis</label>
+                <label><input type="radio" name="q77" value="Staphylococcus aureus"> Staphylococcus aureus</label>
+                <label><input type="radio" name="q77" value="Pseudomonas aeruginosa"> Pseudomonas aeruginosa</label>
+                <label><input type="radio" name="q77" value="Candida albicans"> Candida albicans</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-78">
+            <p>78. 45-year-old smoker is sent for pulmonary function testing because of breathlessness, wheeze and productive cough. There are no other significant respiratory exposures. The family physician has trialled a salbutamol inhaler, which has been somewhat helpful. Spirometry reveals:</p>
+            <pre>
+    FEV1  2.6 L 
+    FVC    4.4 L 
+    FEV1/FVC  0.59 
+    Following nebulisation of 2.5 mg salbutamol:
+    FEV1  3.2 L 
+    FVC    4.4 L 
+    FEV/FVC  0.73 
+            </pre>
+            <p>What does the respiratory function testing reveal?</p>
+            <div class="options">
+                <label><input type="radio" name="q78" value="A mixture of obstruction and restriction"> A mixture of obstruction and restriction</label>
+                <label><input type="radio" name="q78" value="A restrictive defect"> A restrictive defect</label>
+                <label><input type="radio" name="q78" value="A reversible obstructive defect"> A reversible obstructive defect</label>
+                <label><input type="radio" name="q78" value="An irreversible obstructive defect"> An irreversible obstructive defect</label>
+                <label><input type="radio" name="q78" value="Inhaled salbutamol has confounded testing"> Inhaled salbutamol has confounded testing</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-79">
+            <p>79. 75-year-old female presents with an acute infective exacerbation of her long standing Chronic Obstructive Airways Disease. Blood gas analysis whilst she was receiving oxygen shows:</p>
+            <pre>
+    pH 7.14 (7.36-7.44) 
+    P02 18 kPa (11.3-12.6) 
+    PC02 10.5 kPa (4.7-6.0) 
+            </pre>
+            <p>What is the most appropriate immediate management for this patient?</p>
+            <div class="options">
+                <label><input type="radio" name="q79" value="CPAP"> CPAP</label>
+                <label><input type="radio" name="q79" value="Doxapram infusion"> Doxapram infusion</label>
+                <label><input type="radio" name="q79" value="Invasive Ventilation"> Invasive Ventilation</label>
+                <label><input type="radio" name="q79" value="Nebulized salbutamol with ipratropium"> Nebulized salbutamol with ipratropium</label>
+                <label><input type="radio" name="q79" value="Reduce inspired oxygen concentration"> Reduce inspired oxygen concentration</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-80">
+            <p>80. Each one of the following is a risk factor for lung cancer, except ...</p>
+            <div class="options">
+                <label><input type="radio" name="q80" value="Radon"> Radon</label>
+                <label><input type="radio" name="q80" value="Cryptogenic fibrosing alveolitis"> Cryptogenic fibrosing alveolitis</label>
+                <label><input type="radio" name="q80" value="Coal dust"> Coal dust</label>
+                <label><input type="radio" name="q80" value="Asbestos"> Asbestos</label>
+                <label><input type="radio" name="q80" value="Arsenic"> Arsenic</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-81">
+            <p>81. 58-year-old man is investigated for a chronic cough and is found to have lung cancer. He enquires whether it may be work related. Which one of the following is most likely to increase his risk of developing lung cancer?</p>
+            <div class="options">
+                <label><input type="radio" name="q81" value="Isocyanates"> Isocyanates</label>
+                <label><input type="radio" name="q81" value="Soldering flux resin"> Soldering flux resin</label>
+                <label><input type="radio" name="q81" value="Passive smoking"> Passive smoking</label>
+                <label><input type="radio" name="q81" value="Coal dust"> Coal dust</label>
+                <label><input type="radio" name="q81" value="Polyvinyl chloride"> Polyvinyl chloride</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-82">
+            <p>82. 65-year-old life-long smoker with a significant past history of asbestos exposure is investigated for lung cancer. Given his history of both smoking and asbestos exposure. what is his increased risk of lung cancer?</p>
+            <div class="options">
+                <label><input type="radio" name="q82" value="5"> 5</label>
+                <label><input type="radio" name="q82" value="10"> 10</label>
+                <label><input type="radio" name="q82" value="50"> 50</label>
+                <label><input type="radio" name="q82" value="500"> 500</label>
+                <label><input type="radio" name="q82" value="1000"> 1000</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-83">
+            <p>83. 62-year-old female with a 40 pack year history of smoking is investigated for a chronic cough associated with haemoptysis. She has no past medical history of note and still works as a school secretary. Bronchoscopy reveals a small 1 cm tumour confined to the right main bronchus. A biopsy taken shows small cell lung cancer (SCLC). Extensive staging investigations show no evidence of nodal spread or metastases, giving a TNM grading of (T1, NO MO). What is the most appropriate management?</p>
+            <div class="options">
+                <label><input type="radio" name="q83" value="Laser therapy"> Laser therapy</label>
+                <label><input type="radio" name="q83" value="Chemotherapy + radiotherapy"> Chemotherapy + radiotherapy</label>
+                <label><input type="radio" name="q83" value="Referral for consideration of surgical resection"> Referral for consideration of surgical resection</label>
+                <label><input type="radio" name="q83" value="Radiotherapy"> Radiotherapy</label>
+                <label><input type="radio" name="q83" value="Interferon-alpha"> Interferon-alpha</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-84">
+            <p>84. Which one of the following is a contraindication to surgical resection in lung cancer?</p>
+            <div class="options">
+                <label><input type="radio" name="q84" value="Haemoptysis"> Haemoptysis</label>
+                <label><input type="radio" name="q84" value="FEV 1.9 litres"> FEV 1.9 litres</label>
+                <label><input type="radio" name="q84" value="Histology shows squamous cell cancer"> Histology shows squamous cell cancer</label>
+                <label><input type="radio" name="q84" value="Vocal cord paralysis"> Vocal cord paralysis</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-85">
+            <p>85. 62-year-old man who is investigated for haemoptysis is found to have squamous cell lung cancer. Which one of the following is a contraindication to surgery?</p>
+            <div class="options">
+                <label><input type="radio" name="q85" value="Pleural effusion"> Pleural effusion</label>
+                <label><input type="radio" name="q85" value="Superior vena caval obstruction"> Superior vena caval obstruction</label>
+                <label><input type="radio" name="q85" value="Haemoptysis"> Haemoptysis</label>
+                <label><input type="radio" name="q85" value="Hypercalcaemia"> Hypercalcaemia</label>
+                <label><input type="radio" name="q85" value="Enlarged mediastinal lymph nodes"> Enlarged mediastinal lymph nodes</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-86">
+            <p>86. previously healthy 18 years old student suddenly developed left sided pleuritic chest pain and dyspnea. By examination, Heart rate 110, respiratory rate 36 and absent breath sounds over left chest anteriorly. What is your diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q86" value="Pulmonary embolism"> Pulmonary embolism</label>
+                <label><input type="radio" name="q86" value="ARDS"> ARDS</label>
+                <label><input type="radio" name="q86" value="pneumothorax"> pneumothorax</label>
+                <label><input type="radio" name="q86" value="Pneumonia"> Pneumonia</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-87">
+            <p>87. 24-year-old male with no past medical history presents to the Emergency Department with pleuritic chest pain. There is no history of a productive cough and he is not short of breath. Chest x-ray shows a right-sided pneumothorax with a 1 cm rim of air (15% pneumothorax on the right side) and no mediastinal shift. What is the most appropriate management?</p>
+            <div class="options">
+                <label><input type="radio" name="q87" value="Immediate 14G cannula into 2nd intercostal space, mid clavicular line"> Immediate 14G cannula into 2nd intercostal space, mid clavicular line</label>
+                <label><input type="radio" name="q87" value="Discharge with standard advice"> Discharge with standard advice</label>
+                <label><input type="radio" name="q87" value="Aspiration"> Aspiration</label>
+                <label><input type="radio" name="q87" value="intercostal drain insertion"> intercostal drain insertion</label>
+                <label><input type="radio" name="q87" value="Admit for 48 hours observation"> Admit for 48 hours observation</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-88">
+            <p>88. 29-year-old man presents to the Emergency Department with dyspnoea. He has no past medical history of note other than a fractured ankle five months ago. On examination he has absent breath sounds on the left side. The trachea is central and oxygen saturations are 98% on room air. A chest x-ray shows a pneumothorax on the left-side with a 3.5 cm rim of air (50% pneumothorax). There is no midline shift. What is the most appropriate initial management?</p>
+            <div class="options">
+                <label><input type="radio" name="q88" value="Aspiration"> Aspiration</label>
+                <label><input type="radio" name="q88" value="Chest drain"> Chest drain</label>
+                <label><input type="radio" name="q88" value="Discharge with outpatient follow-up x-ray"> Discharge with outpatient follow-up x-ray</label>
+                <label><input type="radio" name="q88" value="Give 28% oxygen via a Venturi mask"> Give 28% oxygen via a Venturi mask</label>
+                <label><input type="radio" name="q88" value="Insert a cannula into the 2nd intercostal space midclavicular line"> Insert a cannula into the 2nd intercostal space midclavicular line</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-89">
+            <p>89. 30-year-old female with a past history of asthma presents to the Emergency Department with pleuritic chest pain. Chest x-ray shows a right-sided pneumothorax with a 1.5 cm rim of air and no mediastinal shift. What is the most appropriate management?</p>
+            <div class="options">
+                <label><input type="radio" name="q89" value="Admit for 48 hours observation"> Admit for 48 hours observation</label>
+                <label><input type="radio" name="q89" value="Intercostal drain insertion"> Intercostal drain insertion</label>
+                <label><input type="radio" name="q89" value="Aspiration"> Aspiration</label>
+                <label><input type="radio" name="q89" value="Discharge"> Discharge</label>
+                <label><input type="radio" name="q89" value="Immediate 14G cannula into 2nd intercostal space mid-clavicular line"> Immediate 14G cannula into 2nd intercostal space mid-clavicular line</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-90">
+            <p>90. 60-year-old female with a history of COPD presents to the Emergency Department with shortness of breath. Blood pressure is 120/80 mmHg and he pulse is 90 bpm. The chest x-ray shows a pneumothorax with a 2.5 cm rim of air and no mediastinal shift. What is the most appropriate management?</p>
+            <div class="options">
+                <label><input type="radio" name="q90" value="Intercostal drain insertion"> Intercostal drain insertion</label>
+                <label><input type="radio" name="q90" value="Discharge"> Discharge</label>
+                <label><input type="radio" name="q90" value="Admit for 48 hours observation and repeat chest x-ray"> Admit for 48 hours observation and repeat chest x-ray</label>
+                <label><input type="radio" name="q90" value="Immediate 14G cannula into 2nd intercostal space, mid-clavicular line"> Immediate 14G cannula into 2nd intercostal space, mid-clavicular line</label>
+                <label><input type="radio" name="q90" value="Aspiration"> Aspiration</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-91">
+            <p>91. 24-year-old man who has been discharged following admission for a spontaneous pneumothorax ask for advice about flying. During his stay in hospital the pneumothorax was aspirated and a check x-ray revealed no residual air. What is the earliest time he should fly?</p>
+            <div class="options">
+                <label><input type="radio" name="q91" value="Immediately"> Immediately</label>
+                <label><input type="radio" name="q91" value="24 hours"> 24 hours</label>
+                <label><input type="radio" name="q91" value="3 days"> 3 days</label>
+                <label><input type="radio" name="q91" value="2 weeks"> 2 weeks</label>
+                <label><input type="radio" name="q91" value="2 months"> 2 months</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-92">
+            <p>92. 29-year-old man is admitted with sudden onset dyspnoea and pleuritic chest pain. He is a smoker but has no history of respiratory disease. He considers himself healthy and regularly plays rugby. On admission he has a chest x-ray that shows a pneumothorax with a 3cm rim of air. Aspiration is successful and he is discharged. A follow-up chest x-ray two weeks later shows a complete resolution. What is the single most important piece of advice to reduce his risk of further pneumothoraces?</p>
+            <div class="options">
+                <label><input type="radio" name="q92" value="Avoid flying for 12 months"> Avoid flying for 12 months</label>
+                <label><input type="radio" name="q92" value="Avoid contact sports for 12 months"> Avoid contact sports for 12 months</label>
+                <label><input type="radio" name="q92" value="Stop smoking"> Stop smoking</label>
+                <label><input type="radio" name="q92" value="Arrange a course of respiratory physiotherapy"> Arrange a course of respiratory physiotherapy</label>
+                <label><input type="radio" name="q92" value="Seek prompt medical advice for potential respiratory infections"> Seek prompt medical advice for potential respiratory infections</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-93">
+            <p>93. Regarding treatment guidelines for bronchiectasis; which one of the following is CORRECT?</p>
+            <div class="options">
+                <label><input type="radio" name="q93" value="Annual influenza vaccine is indicated for severe cases with recurrent exacerbation"> Annual influenza vaccine is indicated for severe cases with recurrent exacerbation</label>
+                <label><input type="radio" name="q93" value="Long term macrolide and long term inhaled antibiotics are indicated in cases with 3 or more exacerbation per year"> Long term macrolide and long term inhaled antibiotics are indicated in cases with 3 or more exacerbation per year</label>
+                <label><input type="radio" name="q93" value="Airway clearance techniques are very important step in severe cases with 3 or more exacerbations per year"> Airway clearance techniques are very important step in severe cases with 3 or more exacerbations per year</label>
+                <label><input type="radio" name="q93" value="Regular antibiotic treatment for severe cases means anti staph antibiotics for 2 weeks every 2-3 months"> Regular antibiotic treatment for severe cases means anti staph antibiotics for 2 weeks every 2-3 months</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-94">
+            <p>94. All of the following statements regarding mastocytosis are TRUE EXCEPT:</p>
+            <div class="options">
+                <label><input type="radio" name="q94" value="Elevated serum tryptase suggests aggressive disease."> Elevated serum tryptase suggests aggressive disease.</label>
+                <label><input type="radio" name="q94" value="Eosinophilia is common."> Eosinophilia is common.</label>
+                <label><input type="radio" name="q94" value="It is often associated with lymphoid neoplasm."> It is often associated with lymphoid neoplasm.</label>
+                <label><input type="radio" name="q94" value="Urticaria pigmentosa is the most common clinical manifestation"> Urticaria pigmentosa is the most common clinical manifestation</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-95">
+            <p>95. One of the following pulmonary function tests confirm your probable diagnosis of bronchial asthma according to recent guidelines:</p>
+            <div class="options">
+                <label><input type="radio" name="q95" value="Decrease CO transfer test"> Decrease CO transfer test</label>
+                <label><input type="radio" name="q95" value="Diurnal variability of peak expiratory flow rate more than 20%"> Diurnal variability of peak expiratory flow rate more than 20%</label>
+                <label><input type="radio" name="q95" value="Increase of FEV1 by 20% after bronchodilators"> Increase of FEV1 by 20% after bronchodilators</label>
+                <label><input type="radio" name="q95" value="Increase of FEV1 by 12% after 4 weeks of inhaled corticosteroids"> Increase of FEV1 by 12% after 4 weeks of inhaled corticosteroids</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-96">
+            <p>96. Regarding pulmonary eosinophilia; which statement is CORRECT?</p>
+            <div class="options">
+                <label><input type="radio" name="q96" value="It means radiographic lung abnormalities with peripheral eosinophilia more than 1500/mcL"> It means radiographic lung abnormalities with peripheral eosinophilia more than 1500/mcL</label>
+                <label><input type="radio" name="q96" value="Pulmonary eosinophilia Could be caused by drugs such as sulphasalazine"> Pulmonary eosinophilia Could be caused by drugs such as sulphasalazine</label>
+                <label><input type="radio" name="q96" value="All helminthic infections can cause pulmonary eosinophilia"> All helminthic infections can cause pulmonary eosinophilia</label>
+                <label><input type="radio" name="q96" value="Hypereosinophilic syndrome is multi-organ tissue eosinophilic infiltration with or without peripheral eosinophilia"> Hypereosinophilic syndrome is multi-organ tissue eosinophilic infiltration with or without peripheral eosinophilia</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-97">
+            <p>97. A patient with poorly controlled asthma started montelukast. What is its mechanism of action?</p>
+            <div class="options">
+                <label><input type="radio" name="q97" value="Beta 2 receptor antagonist"> Beta 2 receptor antagonist</label>
+                <label><input type="radio" name="q97" value="Beta 2 receptor agonist"> Beta 2 receptor agonist</label>
+                <label><input type="radio" name="q97" value="Leukotriene receptor agonist"> Leukotriene receptor agonist</label>
+                <label><input type="radio" name="q97" value="Leukotriene receptor antagonist"> Leukotriene receptor antagonist</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-98">
+            <p>98. Commonest cause of pleural effusion is ..</p>
+            <div class="options">
+                <label><input type="radio" name="q98" value="Liver cirrhosis"> Liver cirrhosis</label>
+                <label><input type="radio" name="q98" value="Left ventricular failure"> Left ventricular failure</label>
+                <label><input type="radio" name="q98" value="Nephrotic syndrome"> Nephrotic syndrome</label>
+                <label><input type="radio" name="q98" value="Malignancy"> Malignancy</label>
+                <label><input type="radio" name="q98" value="Tuberculosis"> Tuberculosis</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-99">
+            <p>99. Posterolateral chest X ray shows unilateral moderate to severe pleural effusion. What is the next step?</p>
+            <div class="options">
+                <label><input type="radio" name="q99" value="Lateral chest X ray"> Lateral chest X ray</label>
+                <label><input type="radio" name="q99" value="Pleural aspiration with ultrasound guided"> Pleural aspiration with ultrasound guided</label>
+                <label><input type="radio" name="q99" value="Pleural biopsy"> Pleural biopsy</label>
+                <label><input type="radio" name="q99" value="Bronchoscopy"> Bronchoscopy</label>
+                <label><input type="radio" name="q99" value="CT chest"> CT chest</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-100">
+            <p>100. d'Espine sign is breathing heard over the vertebral spines below the level of tracheal bifurcation; below the fourth thoracic spine in adults if there is subcarinal lymphadenopathy. Which type of breathing is heard in d'Espine sign?</p>
+            <div class="options">
+                <label><input type="radio" name="q100" value="Bronchial breathing"> Bronchial breathing</label>
+                <label><input type="radio" name="q100" value="Normal vesicular breathing"> Normal vesicular breathing</label>
+                <label><input type="radio" name="q100" value="Harsh vesicular breathing"> Harsh vesicular breathing</label>
+                <label><input type="radio" name="q100" value="All of the above"> All of the above</label>
+                <label><input type="radio" name="q100" value="None of the above"> None of the above</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-101">
+            <p>101. 60 years old obese man with excessive daytime sleep, snores at night and awakens frequently. Known hypertensive and drinks alcohol. Which of the following studies is most appropriate?</p>
+            <div class="options">
+                <label><input type="radio" name="q101" value="EEG"> EEG</label>
+                <label><input type="radio" name="q101" value="Arterial blood gases"> Arterial blood gases</label>
+                <label><input type="radio" name="q101" value="Polysomnography"> Polysomnography</label>
+                <label><input type="radio" name="q101" value="Ventilation perfusion scan"> Ventilation perfusion scan</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-102">
+            <p>102. Which one of the following is least associated with Kartagener's syndrome?</p>
+            <div class="options">
+                <label><input type="radio" name="q102" value="Male subfertility"> Male subfertility</label>
+                <label><input type="radio" name="q102" value="Recurrent sinusitis"> Recurrent sinusitis</label>
+                <label><input type="radio" name="q102" value="Malabsorption"> Malabsorption</label>
+                <label><input type="radio" name="q102" value="Dextrocardia"> Dextrocardia</label>
+                <label><input type="radio" name="q102" value="Bronchiectasis"> Bronchiectasis</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-103">
+            <p>103. Which of the following is not a recognised cause of pulmonary eosinophilia?</p>
+            <div class="options">
+                <label><input type="radio" name="q103" value="Churg-Strauss syndrome"> Churg-Strauss syndrome</label>
+                <label><input type="radio" name="q103" value="Sulphonamides"> Sulphonamides</label>
+                <label><input type="radio" name="q103" value="Extrinsic allergic alveolitis"> Extrinsic allergic alveolitis</label>
+                <label><input type="radio" name="q103" value="Loeffler's syndrome"> Loeffler's syndrome</label>
+                <label><input type="radio" name="q103" value="Allergic bronchopulmonary aspergillosis"> Allergic bronchopulmonary aspergillosis</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-104">
+            <p>104. Which one of the following is the most common type of lung cancer in the UK?</p>
+            <div class="options">
+                <label><input type="radio" name="q104" value="Small cell"> Small cell</label>
+                <label><input type="radio" name="q104" value="Squamous cell"> Squamous cell</label>
+                <label><input type="radio" name="q104" value="Adenocarcinoma"> Adenocarcinoma</label>
+                <label><input type="radio" name="q104" value="Large cell"> Large cell</label>
+                <label><input type="radio" name="q104" value="Carcinoid"> Carcinoid</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-105">
+            <p>105. 54-year-old man is investigated for a chronic cough. A chest x-ray arranged by his GP shows a suspicious lesion in the right lung. He has no past history of note and is a lifelong non-smoker. An urgent bronchoscopy is arranged which is normal. What is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q105" value="Lung sarcoma"> Lung sarcoma</label>
+                <label><input type="radio" name="q105" value="Squamous cell lung cancer"> Squamous cell lung cancer</label>
+                <label><input type="radio" name="q105" value="Lung adenocarcinoma"> Lung adenocarcinoma</label>
+                <label><input type="radio" name="q105" value="Small cell lung cancer"> Small cell lung cancer</label>
+                <label><input type="radio" name="q105" value="Lung carcinoid"> Lung carcinoid</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-106">
+            <p>106. Which one of the following is responsible for malt workers' lung?</p>
+            <div class="options">
+                <label><input type="radio" name="q106" value="Aspergillus clavatus"> Aspergillus clavatus</label>
+                <label><input type="radio" name="q106" value="Avian proteins"> Avian proteins</label>
+                <label><input type="radio" name="q106" value="Mycobacterium avium"> Mycobacterium avium</label>
+                <label><input type="radio" name="q106" value="Thermoactinomyces candidus"> Thermoactinomyces candidus</label>
+                <label><input type="radio" name="q106" value="Micropolyspora faeni"> Micropolyspora faeni</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-107">
+            <p>107. 65-year-old man presents with progressive shortness-of-breath. On examination he is found to have fine crackles in both lung bases and oxygen saturations of 93% on room air. A diagnosis of idiopathic pulmonary fibrosis is suspected. Which one of the following chest x-ray findings develops first in patients with idiopathic pulmonary fibrosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q107" value="Asymmetrical upper zone 'ground-glass' changes"> Asymmetrical upper zone 'ground-glass' changes</label>
+                <label><input type="radio" name="q107" value="Small, peripheral opacities in the lower zones"> Small, peripheral opacities in the lower zones</label>
+                <label><input type="radio" name="q107" value="Perihilar horizontal septal lines"> Perihilar horizontal septal lines</label>
+                <label><input type="radio" name="q107" value="Honeycombing"> Honeycombing</label>
+                <label><input type="radio" name="q107" value="Loss of left heart border"> Loss of left heart border</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-108">
+            <p>108. Respiratory bronchiolitis-interstitial lung disease (RBILD) is more common in which of the following groups?</p>
+            <div class="options">
+                <label><input type="radio" name="q108" value="Non-smokers"> Non-smokers</label>
+                <label><input type="radio" name="q108" value="Patients > 65 years of age"> Patients > 65 years of age</label>
+                <label><input type="radio" name="q108" value="Patients with connective tissue diseases"> Patients with connective tissue diseases</label>
+                <label><input type="radio" name="q108" value="Smokers"> Smokers</label>
+                <label><input type="radio" name="q108" value="Women"> Women</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-109">
+            <p>109. 69 year old woman has progressive breathlessness on exertion. Because she described a vague feeling of her chest tightening during one of these episodes, her family physician started aspirin and glyceryl trinitrate spray and referred to cardiology. She underwent CT coronary angiogram. This identified no coronary artery disease but diffuse ground glass and some centrilobular nodules were picked up incidentally in the lungs. The patient has no past medical history, worked as a secretary and was a non-smoker. She has kept a pet parrot at home for the last year. What is the likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q109" value="Aspirin sensitivity"> Aspirin sensitivity</label>
+                <label><input type="radio" name="q109" value="Breathing artefact"> Breathing artefact</label>
+                <label><input type="radio" name="q109" value="Hypersensitivity pneumonitis"> Hypersensitivity pneumonitis</label>
+                <label><input type="radio" name="q109" value="Idiopathic pulmonary fibrosis"> Idiopathic pulmonary fibrosis</label>
+                <label><input type="radio" name="q109" value="Sarcoidosis"> Sarcoidosis</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-110">
+            <p>110. 45-year-old dairy farmer presents with increasing shortness-of-breath on exertion. He is a non-smoker and has no respiratory history of note. His symptoms seem to become much worse when he is around the farm and are associated with chest tightness and a non-productive cough. A diagnosis of extrinsic allergic alveolitis is suspected. Which one of the following is most likely to be responsible?</p>
+            <div class="options">
+                <label><input type="radio" name="q110" value="Mycoplasma pneumoniae"> Mycoplasma pneumoniae</label>
+                <label><input type="radio" name="q110" value="Isocyanate based pesticides"> Isocyanate based pesticides</label>
+                <label><input type="radio" name="q110" value="Contaminated hay"> Contaminated hay</label>
+                <label><input type="radio" name="q110" value="Cow faeces"> Cow faeces</label>
+                <label><input type="radio" name="q110" value="Ryegrass (Lolium sp.)"> Ryegrass (Lolium sp.)</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-111">
+            <p>111. You review a 27-year-old woman in the Emergency Department who has been admitted with an acute exacerbation of her asthma. Which one of the following features is most likely to indicate a life-threatening attack?</p>
+            <div class="options">
+                <label><input type="radio" name="q111" value="Failure to improve after nebulised salbutamol 5mg"> Failure to improve after nebulised salbutamol 5mg</label>
+                <label><input type="radio" name="q111" value="Cannot complete sentences"> Cannot complete sentences</label>
+                <label><input type="radio" name="q111" value="Oxygen saturations of 94% on room air"> Oxygen saturations of 94% on room air</label>
+                <label><input type="radio" name="q111" value="Peak flow of 30% best or predicted"> Peak flow of 30% best or predicted</label>
+                <label><input type="radio" name="q111" value="Respiratory rate of 42 / min"> Respiratory rate of 42 / min</label>
+            </div>
+        </div>
+    
+        <div class="question" id="question-112">
+            <p>112. 70-year-old man with chronic obstructive lung disease requires 2 L/min of nasal O2 to treat his hypoxia, which is sometimes associated with angina. The patient develops pleuritic chest pain, fever, and purulent sputum. While using his oxygen at an increased flow of 5 L/min, he becomes stuporous and develops a respiratory acidosis with CO2 retention and worsening hypoxia. What would be the most appropriate next step in the management of this patient?</p>
+            <div class="options">
+                <label><input type="radio" name="q112" value="Stop oxygen"> Stop oxygen</label>
+                <label><input type="radio" name="q112" value="Begin medroxyprogesterone"> Begin medroxyprogesterone</label>
+                <label><input type="radio" name="q112" value="Intubate and begin mechanical ventilation"> Intubate and begin mechanical ventilation</label>
+                <label><input type="radio" name="q112" value="Treat with antibiotics and observe on the general medicine ward for 24 hours"> Treat with antibiotics and observe on the general medicine ward for 24 hours</label>
+                <label><input type="radio" name="q112" value="Begin sodium bicarbonate"> Begin sodium bicarbonate</label>
+            </div>
+        </div>
+
+        <button class="btn" id="nextBtn" onclick="nextQuestion()">Next Question</button>
+        <button class="btn" id="submitBtn" onclick="evaluateQuiz()" style="display: none;">Submit Quiz</button>
+
+        <div class="result" id="result">
+            <h2>Results</h2>
+            <div id="score"></div>
+            <div id="answers-summary"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 112;
+        let score = 0;
+        let timerInterval;
+        const answers = {
+            q1: "Sarcoidosis",
+            q2: "Glucocorticoids",
+            q3: "Pulmonary embolism",
+            q4: "Right ventricular hypertrophy",
+            q5: "Improved symptomatology when being on holiday",
+            q6: "High resolution CT scan of chest",
+            q7: "Chronic Bronchitis",
+            q8: "Chronic obstructive lung disease",
+            q9: "A respiratory rate of 32/min",
+            q10: "Fat embolism",
+            q11: "Home Sleep study",
+            q12: "Fibrosing Alveolitis",
+            q13: "Postural drainage",
+            q14: "Chronic obstructive airways disease",
+            q15: "Loss of elastic recoil",
+            q16: "Spirometry before and after exercise",
+            q17: "Amoxicillin and Flucloxacillin",
+            q18: "Hamartoma",
+            q19: "Anticoagulation with heparin",
+            q20: "Urea 12 mmol/l",
+            q21: "CRP of 112",
+            q22: "Rhinovirus",
+            q23: "Bronchiectasis",
+            q24: "25 mmHg",
+            q25: "Amyloidosis",
+            q26: "Finger clubbing",
+            q27: "Lofgren's syndrome",
+            q28: "Erythema nodosum",
+            q29: "Stage 2",
+            q30: "Hypercalcaemia",
+            q31: "Legionella pneumophila",
+            q32: "Klebsiella pneumoniae",
+            q33: "Anaerobes",
+            q34: "Strept pneumonia",
+            q35: "Give drug IV",
+            q36: "Pneumothorax",
+            q37: "Legionella",
+            q38: "SIADH",
+            q39: "CT pulmonary angiography",
+            q40: "COPD",
+            q41: "chronic bronchitis",
+            q42: "Smoking cessation",
+            q43: "Long term oxygen therapy",
+            q44: "FEV1 by spirometry",
+            q45: "Haemoglobin of 18.4 g/dl",
+            q46: "Haemophilus influenzae",
+            q47: "isocyanates",
+            q48: "12%",
+            q49: "Add a leukotriene receptor antagonist",
+            q50: "Cadmium",
+            q51: "Pulmonary tuberculosis",
+            q52: "Pulmonary tuberculosis",
+            q53: "Systemic lupus erythematosus",
+            q54: "Flow volume loop",
+            q55: "Chest pain",
+            q56: "Leukotrienes",
+            q57: "COPD",
+            q58: "it is airflow limitation that is not fully reversible",
+            q59: "yearly influenza vaccination",
+            q60: "Oxygen",
+            q61: "Atopy",
+            q62: "inhaled albuterol",
+            q63: "Pulmonary embolism",
+            q64: "continuous IV heparin or subcutaneous low-molecular-weight heparin (LMWH) therapy is indicated",
+            q65: "normal ventilation-perfusion lung scan",
+            q66: "it is sensitive but not specific",
+            q67: "respiratory center",
+            q68: "antibiotics and postural drainage",
+            q69: "lung infection and impairment of drainage",
+            q70: "HLA-DR 1",
+            q71: "high resolution CT chest",
+            q72: "Bosentan",
+            q73: "Dextrocardia",
+            q74: "Sweat chloride values >60 mmol/L",
+            q75: "Hepatitis B",
+            q76: "calcium channel blockers",
+            q77: "oropharyngeal flora",
+            q78: "A reversible obstructive defect",
+            q79: "Reduce inspired oxygen concentration",
+            q80: "Coal dust",
+            q81: "Passive smoking",
+            q82: "50",
+            q83: "Referral for consideration of surgical resection",
+            q84: "Vocal cord paralysis",
+            q85: "Superior vena caval obstruction",
+            q86: "pneumothorax",
+            q87: "Discharge with standard advice",
+            q88: "Aspiration",
+            q89: "Aspiration",
+            q90: "Intercostal drain insertion",
+            q91: "2 weeks",
+            q92: "Stop smoking",
+            q93: "Airway clearance techniques are very important step in severe cases with 3 or more exacerbations per year",
+            q94: "It is often associated with lymphoid neoplasm.",
+            q95: "Increase of FEV1 by 20% after bronchodilators",
+            q96: "It means radiographic lung abnormalities with peripheral eosinophilia more than 1500/mcL",
+            q97: "Leukotriene receptor antagonist",
+            q98: "Left ventricular failure",
+            q99: "Pleural aspiration with ultrasound guided",
+            q100: "Bronchial breathing",
+            q101: "Polysomnography",
+            q102: "Malabsorption",
+            q103: "Extrinsic allergic alveolitis",
+            q104: "Squamous cell",
+            q105: "Lung adenocarcinoma",
+            q106: "Aspergillus clavatus",
+            q107: "Small, peripheral opacities in the lower zones",
+            q108: "Smokers",
+            q109: "Hypersensitivity pneumonitis",
+            q110: "Contaminated hay",
+            q111: "Peak flow of 30% best or predicted",
+            q112: "Intubate and begin mechanical ventilation"
+        };
+
+        function showQuestion() {
+            document.querySelectorAll('.question').forEach((q, index) => {
+                q .style.display = index + 1 === currentQuestion ? 'block' : 'none';
+            });
+            document.getElementById('nextBtn').style.display = currentQuestion < totalQuestions ? 'block' : 'none';
+            document.getElementById('submitBtn').style.display = currentQuestion === totalQuestions ? 'block' : 'none';
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            clearInterval(timerInterval);
+            startTimer();
+            showQuestion();
+        }
+
+        function startTimer() {
+            let timeRemaining = 60;
+            document.getElementById('timer').textContent = `Time remaining: ${timeRemaining} seconds`;
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                document.getElementById('timer').textContent = `Time remaining: ${timeRemaining} seconds`;
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    if (currentQuestion < totalQuestions) {
+                        nextQuestion();
+                    } else {
+                        evaluateQuiz();
+                    }
+                }
+            }, 1000);
+        }
+
+        function evaluateQuiz() {
+            score = 0;
+            let summary = '';
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                const correctAnswer = answers[`q${i}`];
+                const questionElement = document.getElementById(`question-${i}`);
+                const options = document.querySelectorAll(`input[name="q${i}"]`);
+                let questionSummary = `<p><strong>Question ${i}: </strong>${questionElement.querySelector('p').innerText}</p>`;
+
+                options.forEach(option => {
+                    const optionLabel = option.parentElement;
+                    if (option.value === correctAnswer) {
+                        optionLabel.style.color = 'green';
+                    } else if (selectedOption && selectedOption.value === option.value) {
+                        optionLabel.style.color = 'red';
+                    }
+                });
+
+                questionSummary += `<div>Answer: <strong>${selectedOption ? selectedOption.value : 'None selected'}</strong></div>`;
+                questionSummary += `<div>Correct answer: <strong>${correctAnswer}</strong></div>`;
+
+                if (selectedOption && selectedOption.value === correctAnswer) {
+                    score++;
+                    summary += questionSummary + `<p class="correct">Correct</p>`;
+                } else {
+                    summary += questionSummary + `<p class="incorrect">Incorrect</p>`;
+                }
+            }
+
+            document.getElementById('score').textContent = `Your score: ${score} out of ${totalQuestions}`;
+            document.getElementById('answers-summary').innerHTML = summary;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('timer').style.display = 'none'; 
+            document.querySelectorAll('.question').forEach((q) => q.style.display = 'none');
+
+            clearInterval(timerInterval);
+        }
+
+        window.onload = function() {
+            showQuestion();
+            startTimer();
+        };
+        
+        
+        function nextQuestion() {
+    // Increase the current question counter
+            currentQuestion++;
+
+            // Reset the timer
+            clearInterval(timerInterval); // Stop the current timer
+            startTimer(); // Start the timer from the beginning
+
+            // Show the next question
+            showQuestion();
+        }
+        
+    </script>
+</body>
+</html>
